@@ -1,7 +1,7 @@
 {
   "task": "Fix match review layout and investigation workflow clarity",
-  "stage": "ready-to-deploy",
-  "nextStep": "Commit and push the verified UI correction",
+  "stage": "complete",
+  "nextStep": "Collect Anthony's feedback on the live corrected workflow",
   "blockers": [],
   "artifacts": [
     "src/DemoApp.tsx",
@@ -9,5 +9,5 @@
     "screenshots/match-before-investigation.png",
     "screenshots/match-after-investigation.png"
   ],
-  "timestamp": "2026-08-20T14:31:00-07:00"
+  "timestamp": "2026-08-20T14:35:00-07:00"
 }
