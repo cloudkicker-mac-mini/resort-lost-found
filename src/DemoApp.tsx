@@ -407,7 +407,12 @@ function ManagementView({
   returnMethod: string | null;
   advance: (s: Stage, m: string) => void;
 }) {
-  const [view, setView] = useState<"queue" | "case">("queue");
+  const [view, setView] = useState<"queue" | "case">(
+    stage === "reported" ? "queue" : "case",
+  );
+  useEffect(() => {
+    if (stage !== "reported") setView("case");
+  }, [stage]);
   return (
     <div className="management">
       <aside className="sideNav">
