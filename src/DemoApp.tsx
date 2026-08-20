@@ -689,6 +689,15 @@ function CaseDetail({
           </div>
           <span className={"statusPill " + stage}>{stageLabels[stage]}</span>
         </div>
+        <div className={"caseOutcome " + stage}>
+          <span className="outcomeIcon"><PackageCheck /></span>
+          <div>
+            <p>{stage === "reunited" ? "Case resolved" : "Recommended next step"}</p>
+            <strong>{stage === "reunited" ? "Maria has her sunglasses back" : stage === "return" ? "Complete the verified return" : stage === "matched" ? "Waiting on Maria’s return choice" : stage === "investigating" ? "Verify the private ownership clue" : "Review the 92% suggested match"}</strong>
+            <small>{stage === "reunited" ? "Ownership verified · Custody receipt signed · Guest notified" : "The strongest evidence and required action are highlighted below."}</small>
+          </div>
+          <span className="outcomeStamp">{stage === "reunited" ? "REUNITED" : "ACTION NEEDED"}</span>
+        </div>
       </div>
       <div className="caseColumns">
         <div>
@@ -701,7 +710,8 @@ function CaseDetail({
               <span className="confidence">92% match</span>
             </div>
             <div className="compareGrid">
-              <div>
+              <div className="comparisonCard guestEvidence">
+                <div className="evidenceVisual"><span>🕶️</span><small>Guest description</small></div>
                 <p className="mini">Guest report</p>
                 <h4>Black round sunglasses</h4>
                 <span>
@@ -714,7 +724,9 @@ function CaseDetail({
                   <ShieldCheck /> Private clue: scratch on left lens
                 </span>
               </div>
-              <div>
+              <div className="matchConnector"><Sparkles /><b>92%</b><small>Likely match</small></div>
+              <div className="comparisonCard foundEvidence">
+                <div className="evidenceVisual found"><span>🕶️</span><small>Found-item photo</small></div>
                 <p className="mini">Found inventory</p>
                 <h4>Round sunglasses, tortoise arms</h4>
                 <span>
@@ -729,6 +741,7 @@ function CaseDetail({
               </div>
             </div>
             <div className="reasons">
+              <b>Why it matched</b>
               <span>Exact room</span>
               <span>Time proximity</span>
               <span>Color & shape</span>

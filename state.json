@@ -1,8 +1,13 @@
 {
-  "task": "Restyle connected demo to accurately match Team Member Insight",
-  "stage": "complete",
-  "nextStep": "Push the verified redesign after Anthony approves deployment",
+  "task": "Improve case-detail visual hierarchy and personality",
+  "stage": "verified",
+  "nextStep": "Commit and deploy the verified case-detail redesign",
   "blockers": [],
-  "artifacts": ["src/DemoApp.tsx", "src/demo.css", "tests/visual.spec.ts", "screenshots/demo-guest-desktop.png", "screenshots/demo-management-desktop.png"],
-  "timestamp": "2026-08-20T13:03:00-07:00"
+  "artifacts": [
+    "src/DemoApp.tsx",
+    "src/demo.css",
+    "screenshots/demo-case-personality-desktop.png",
+    "screenshots/demo-case-personality-mobile.png"
+  ],
+  "timestamp": "2026-08-20T13:34:00-07:00"
 }
