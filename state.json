@@ -1,7 +1,7 @@
 {
   "task": "Fix collapsed bottom spacing in match action panel",
-  "stage": "ready-to-deploy",
-  "nextStep": "Commit and publish the verified 22px bottom inset fix",
+  "stage": "complete",
+  "nextStep": "Collect Anthony's feedback on the corrected live spacing",
   "blockers": [],
   "artifacts": [
     "src/DemoApp.tsx",
