@@ -1,7 +1,7 @@
 {
-  "task": "Fix match review layout and investigation workflow clarity",
-  "stage": "complete",
-  "nextStep": "Collect Anthony's feedback on the live corrected workflow",
+  "task": "Fix collapsed bottom spacing in match action panel",
+  "stage": "ready-to-deploy",
+  "nextStep": "Commit and publish the verified 22px bottom inset fix",
   "blockers": [],
   "artifacts": [
     "src/DemoApp.tsx",
@@ -9,5 +9,5 @@
     "screenshots/match-before-investigation.png",
     "screenshots/match-after-investigation.png"
   ],
-  "timestamp": "2026-08-20T14:35:00-07:00"
+  "timestamp": "2026-08-20T14:48:00-07:00"
 }

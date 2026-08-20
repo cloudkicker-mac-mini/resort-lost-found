@@ -69,3 +69,8 @@
 
 @media(max-width:850px){.compareGrid{gap:24px;padding-top:54px}.matchConnector{top:14px;transform:translateX(-50%)}}
 @media(max-width:760px){.investigationPrompt{align-items:stretch;flex-direction:column}.investigationPrompt .mgmtPrimary{width:100%}}
+
+/* Keep every case action visibly inset from the card edge. Last-child margins
+   can collapse outside this container when overflow is visible. */
+.compare{padding-bottom:22px}
+.compare>.mgmtPrimary,.compare>.investigationPrompt,.compare>.investigationAction,.compare>.emailSent,.compare>.waiting,.compare>.complete{margin-bottom:0}
