@@ -1,7 +1,7 @@
 {
   "task": "Improve case-detail visual hierarchy and personality",
-  "stage": "verified",
-  "nextStep": "Commit and deploy the verified case-detail redesign",
+  "stage": "complete",
+  "nextStep": "Collect Anthony's feedback on the deployed case-detail redesign",
   "blockers": [],
   "artifacts": [
     "src/DemoApp.tsx",
@@ -9,5 +9,5 @@
     "screenshots/demo-case-personality-desktop.png",
     "screenshots/demo-case-personality-mobile.png"
   ],
-  "timestamp": "2026-08-20T13:34:00-07:00"
+  "timestamp": "2026-08-20T13:37:00-07:00"
 }
