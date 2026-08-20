@@ -13,7 +13,7 @@ import {
   Filter,
   LayoutDashboard,
   MapPin,
-  MessageCircle,
+  Mail,
   PackageCheck,
   Plus,
   RotateCcw,
@@ -208,13 +208,13 @@ function GuestView({
         </h1>
         <p>
           Tell us what happened. You won’t need an account, and your resort team
-          will keep you updated.
+          will keep you updated by email.
         </p>
         <div className="guestHelp">
-          <MessageCircle />
+          <Mail />
           <span>
-            <b>Need help?</b>
-            <small>A resort team member can assist with your report.</small>
+            <b>Watch your inbox</b>
+            <small>All report and return instructions arrive securely by email.</small>
           </span>
         </div>
       </aside>
@@ -299,7 +299,7 @@ function GuestView({
                   <div className="demoInput">(555) 014-2882</div>
                 </div>
                 <div className="consent">
-                  <Check /> Send private report updates by email and text
+                  <Mail /> Report updates and return instructions will be sent to maria@example.com. Mobile is collected only if the resort team needs it.
                 </div>
                 <button className="demoPrimary" onClick={() => setGuestStep(3)}>
                   Submit sample report <ArrowRight />
@@ -761,20 +761,22 @@ function CaseDetail({
               </button>
             )}
             {stage === "investigating" && (
-              <button
-                className="mgmtPrimary"
-                onClick={() =>
-                  advance("matched", "Match approved—Maria has been notified")
-                }
-              >
-                Verify ownership & approve match <Check />
-              </button>
+              <div className="investigationAction">
+                <div className="investigationOpened">
+                  <FileSearch />
+                  <span><b>Investigation opened</b><small>Private clue ready to verify: tiny scratch on the left lens</small></span>
+                </div>
+                <button className="mgmtPrimary" onClick={() => advance("matched", "Match approved—return email sent to Maria")}>
+                  Verify ownership & approve match <Check />
+                </button>
+              </div>
             )}
             {stage === "matched" && (
-              <p className="waiting">
-                <Clock3 /> Waiting for Maria to choose pickup or shipping.
-                Switch to Guest Experience to continue.
-              </p>
+              <div className="emailSent">
+                <Mail />
+                <span><b>Return email sent to maria@example.com</b><small>Maria received a secure link to choose verified pickup, authorized pickup, or tracked shipping.</small></span>
+                <span className="emailBadge"><Check /> Sent</span>
+              </div>
             )}
             {stage === "return" && (
               <button
@@ -799,7 +801,7 @@ function CaseDetail({
           <section className="activity">
             <div className="sectionTitle">
               <h3>Case activity</h3>
-              <button>Internal notes</button>
+              <span className="internalOnly">Internal activity only</span>
             </div>
             {[
               [
@@ -821,7 +823,7 @@ function CaseDetail({
                 "Now",
                 "Guest notification",
                 stage === "matched"
-                  ? "Match confirmation sent"
+                  ? "Return-method email sent to maria@example.com"
                   : stage === "return"
                     ? "Return choice received"
                     : stage === "reunited"
@@ -881,9 +883,9 @@ function CaseDetail({
               <br />
               (555) 014-2882
             </small>
-            <button>
-              <MessageCircle /> Send update
-            </button>
+            <div className="emailOnlyNote">
+              <Mail /> <span><b>Email communication</b><small>Automated case and return updates only</small></span>
+            </div>
           </section>
         </aside>
       </div>

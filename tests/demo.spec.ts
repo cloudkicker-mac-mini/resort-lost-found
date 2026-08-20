@@ -11,7 +11,9 @@ test('guest and management share one case lifecycle',async({page})=>{
   await page.getByRole('button',{name:/resort management/i}).click();
   await page.getByRole('button',{name:/round black sunglasses/i}).click();
   await page.getByRole('button',{name:/begin investigation/i}).click();
+  await expect(page.getByText('Investigation opened',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:/verify ownership/i}).click();
+  await expect(page.getByText(/return email sent to maria@example.com/i).first()).toBeVisible();
   await page.getByRole('button',{name:/guest experience/i}).click();
   await expect(page.getByText('Item matched',{exact:true}).first()).toBeVisible();
   await page.getByRole('button',{name:/tracked shipping/i}).click();
@@ -34,7 +36,7 @@ test('demo reset clears progress and returns to guest report',async({page})=>{
 
 test('management inventory supports search detail and mobile intake',async({page})=>{
   await page.goto('/');
-  await page.getByRole('button',{name:/try management demo/i}).click();
+  await page.getByRole('button',{name:/open management demo/i}).click();
   await page.getByRole('button',{name:/found inventory/i}).click();
   await expect(page.getByRole('heading',{name:/everything found, secured, and searchable/i})).toBeVisible();
   await page.getByLabel('Search found inventory').fill('fitness watch');
@@ -47,7 +49,7 @@ test('management inventory supports search detail and mobile intake',async({page
 
 test('custody log exposes a verified item timeline',async({page})=>{
   await page.goto('/');
-  await page.getByRole('button',{name:/try management demo/i}).click();
+  await page.getByRole('button',{name:/open management demo/i}).click();
   await page.getByRole('button',{name:/custody log/i}).click();
   await expect(page.getByRole('heading',{name:/every handoff has a receipt/i})).toBeVisible();
   await expect(page.getByText('Found and inventoried')).toBeVisible();
