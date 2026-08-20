@@ -707,7 +707,7 @@ function CaseDetail({
                 <p className="mini">Suggested match</p>
                 <h3>Found item FI-20847</h3>
               </div>
-              <span className="confidence">92% match</span>
+              <span className="confidence">92% likely match</span>
             </div>
             <div className="compareGrid">
               <div className="comparisonCard guestEvidence">
@@ -724,7 +724,7 @@ function CaseDetail({
                   <ShieldCheck /> Private clue: scratch on left lens
                 </span>
               </div>
-              <div className="matchConnector"><Sparkles /><b>92%</b><small>Likely match</small></div>
+              <div className="matchConnector"><Sparkles /><b>Strong evidence match</b></div>
               <div className="comparisonCard foundEvidence">
                 <div className="evidenceVisual found"><span>🕶️</span><small>Found-item photo</small></div>
                 <p className="mini">Found inventory</p>
@@ -748,23 +748,24 @@ function CaseDetail({
               <span>Gold “ML” initials</span>
             </div>
             {stage === "reported" && (
-              <button
-                className="mgmtPrimary"
-                onClick={() =>
-                  advance(
-                    "investigating",
-                    "Investigation started—guest status updated",
-                  )
-                }
-              >
-                Begin investigation <ArrowRight />
-              </button>
+              <div className="investigationPrompt">
+                <div className="investigationPromptCopy">
+                  <span className="promptIcon"><FileSearch /></span>
+                  <span>
+                    <b>Ready to investigate this match?</b>
+                    <small>Updates the guest’s tracking page to “We’re looking into a possible match” and opens the private ownership clue for staff verification. It does not tell the guest a match is confirmed.</small>
+                  </span>
+                </div>
+                <button aria-label="Begin investigation — start guest-visible review" className="mgmtPrimary" onClick={() => advance("investigating", "Investigation started—guest tracking status updated")}>
+                  Start investigation <ArrowRight />
+                </button>
+              </div>
             )}
             {stage === "investigating" && (
               <div className="investigationAction">
                 <div className="investigationOpened">
                   <FileSearch />
-                  <span><b>Investigation opened</b><small>Private clue ready to verify: tiny scratch on the left lens</small></span>
+                  <span><b>Investigation opened</b><small>Guest tracking now shows this case is being reviewed. Verify the private clue: tiny scratch on the left lens.</small></span>
                 </div>
                 <button className="mgmtPrimary" onClick={() => advance("matched", "Match approved—return email sent to Maria")}>
                   Verify ownership & approve match <Check />
