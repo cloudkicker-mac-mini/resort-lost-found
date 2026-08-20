@@ -13,5 +13,12 @@ test("demo remains readable in a dark OS color scheme", async ({ page }) => {
   await page.getByRole("button", { name: /resort management/i }).click();
   await expect(page.getByRole("heading", { name: /command center/i })).toBeVisible();
   await page.screenshot({ path: "screenshots/demo-management-desktop.png", fullPage: true });
+  await page.getByRole("button", { name: /found inventory/i }).click();
+  await page.screenshot({ path: "screenshots/demo-inventory-desktop.png", fullPage: true });
+  await page.getByRole("button", { name: /custody log/i }).click();
+  await page.screenshot({ path: "screenshots/demo-custody-desktop.png", fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: /found inventory/i }).click();
+  await page.screenshot({ path: "screenshots/demo-inventory-mobile.png", fullPage: true });
   expect(consoleErrors).toEqual([]);
 });
